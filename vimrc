@@ -25,6 +25,8 @@ Plug 'amerlyq/vim-focus-autocmd'      " Focus events for vim in terminal
 Plug 'sheerun/vim-polyglot'           " Solid language pack
 Plug 'scrooloose/syntastic'           " Syntax checker
 Plug 'mbbill/undotree'                " Visualize undo branches
+Plug 'kana/vim-textobj-user'          " Create your own text objects
+Plug 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
 call plug#end()
 
 " Use the colorscheme from above
