@@ -12,3 +12,6 @@ for f in $PWD/config/*
 do
   ln -sfn $f ~/.config/$(basename $f)
 done
+
+# create undodir
+mkdir -p ~/.undodir/
