@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Meta>
+		<PreferUserConfiguration>false</PreferUserConfiguration>
+		<OmitItemsWithDefaultValues>true</OmitItemsWithDefaultValues>
+	</Meta>
+	<Application>
+		<LastUsedFile>
+			<Path />
+			<CredProtMode>Obf</CredProtMode>
+			<CredSaveMode>NoSave</CredSaveMode>
+		</LastUsedFile>
+		<MostRecentlyUsed>
+			<MaxItemCount>0</MaxItemCount>
+			<Items />
+		</MostRecentlyUsed>
+		<RememberWorkingDirectories>false</RememberWorkingDirectories>
+		<WorkingDirectories />
+		<Start>
+			<OpenLastFile>false</OpenLastFile>
+			<CheckForUpdate>false</CheckForUpdate>
+		</Start>
+		<FileOpening />
+		<FileClosing>
+			<AutoSave>true</AutoSave>
+		</FileClosing>
+		<TriggerSystem>
+			<Triggers>
+				<Trigger>
+					<Guid>TALdJC0tzkO2QBdr9Wgftw==</Guid>
+					<Name>Prevent data loss by GDrive</Name>
+					<Events>
+						<Event>
+							<TypeGuid>s6j9/ngTSmqcXdW6hDqbjg==</TypeGuid>
+							<Parameters>
+								<Parameter>0</Parameter>
+								<Parameter />
+							</Parameters>
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter />
+								<Parameter>0</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>Iq135Bd4Tu2ZtFcdArOtTQ==</TypeGuid>
+							<Parameters>
+								<Parameter>/home/km/GDrive/KeePass.kdbx</Parameter>
+								<Parameter />
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter />
+								<Parameter>1</Parameter>
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>gBH/MZ7ynUCRjBBVAZxEbw==</Guid>
+					<Name>On KeePass start:  Auto Save buttons, initialize</Name>
+					<Events>
+						<Event>
+							<TypeGuid>1M7NtUuYT/KmqeJVJh7I6A==</TypeGuid>
+							<Parameters />
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>lYGPRZlmSYirPoboGpZoNg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+								<Parameter>Auto Save OFF</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter>On db changed:  Save</Parameter>
+								<Parameter>1</Parameter>
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>mfzSS4gfeUyi1ERz1Vh7uQ==</Guid>
+					<Name>On db opened: Auto Save On</Name>
+					<Events>
+						<Event>
+							<TypeGuid>5f8TBoW4QYm5BvaeKztApw==</TypeGuid>
+							<Parameters>
+								<Parameter>0</Parameter>
+								<Parameter />
+							</Parameters>
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>1m1BomyyRLqkSApB+glIeQ==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>1m1BomyyRLqkSApB+glIeQ==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_ON</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>lYGPRZlmSYirPoboGpZoNg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+								<Parameter>Auto Save OFF</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter>On db changed:  Save</Parameter>
+								<Parameter>1</Parameter>
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>dzatldc/jkOKLpkWmxGtCg==</Guid>
+					<Name>On db changed:  Save</Name>
+					<Events>
+						<Event>
+							<TypeGuid>jRLUmvLLT/eo78/arGJomQ==</TypeGuid>
+							<Parameters />
+						</Event>
+					</Events>
+					<Conditions>
+						<Condition>
+							<TypeGuid>08r67ygqRkqZkNhl/OAW7Q==</TypeGuid>
+							<Parameters />
+							<Negate>false</Negate>
+						</Condition>
+					</Conditions>
+					<Actions>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter />
+								<Parameter>0</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>9VdhS/hMQV2pE3o5zRDwvQ==</TypeGuid>
+							<Parameters />
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter />
+								<Parameter>1</Parameter>
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>dy/Jd4wZA02w5yj/l2U//A==</Guid>
+					<Name>Auto Save OFF Action</Name>
+					<Events>
+						<Event>
+							<TypeGuid>R0dZkpenQ6K5aB8fwvebkg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+							</Parameters>
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>1m1BomyyRLqkSApB+glIeQ==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter>On db changed:  Save</Parameter>
+								<Parameter>0</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>lYGPRZlmSYirPoboGpZoNg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_ON</Parameter>
+								<Parameter>Auto Save ON</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+				<Trigger>
+					<Guid>igyBmu926U6efCRtjBlJBQ==</Guid>
+					<Name>Auto Save ON Action</Name>
+					<Events>
+						<Event>
+							<TypeGuid>R0dZkpenQ6K5aB8fwvebkg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_ON</Parameter>
+							</Parameters>
+						</Event>
+					</Events>
+					<Conditions />
+					<Actions>
+						<Action>
+							<TypeGuid>1m1BomyyRLqkSApB+glIeQ==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_ON</Parameter>
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>lYGPRZlmSYirPoboGpZoNg==</TypeGuid>
+							<Parameters>
+								<Parameter>btn_Auto_Save_OFF</Parameter>
+								<Parameter>Auto Save OFF</Parameter>
+								<Parameter />
+							</Parameters>
+						</Action>
+						<Action>
+							<TypeGuid>tkamn96US7mbrjykfswQ6g==</TypeGuid>
+							<Parameters>
+								<Parameter>On db changed:  Save</Parameter>
+								<Parameter>1</Parameter>
+							</Parameters>
+						</Action>
+					</Actions>
+				</Trigger>
+			</Triggers>
+		</TriggerSystem>
+	</Application>
+	<Logging />
+	<MainWindow>
+		<X>297</X>
+		<Y>52</Y>
+		<Width>771</Width>
+		<Height>663</Height>
+		<SplitterHorizontalFrac>0.8333</SplitterHorizontalFrac>
+		<SplitterVerticalFrac>0.25</SplitterVerticalFrac>
+		<Layout>Default</Layout>
+		<CloseButtonMinimizesWindow>true</CloseButtonMinimizesWindow>
+		<EscMinimizesToTray>true</EscMinimizesToTray>
+		<MinimizeToTray>true</MinimizeToTray>
+		<ToolBar />
+		<EntryView />
+		<TanView />
+		<EntryListColumnCollection>
+			<Column>
+				<Type>Title</Type>
+				<Width>106</Width>
+			</Column>
+			<Column>
+				<Type>UserName</Type>
+				<Width>106</Width>
+			</Column>
+			<Column>
+				<Type>Password</Type>
+				<Width>106</Width>
+				<HideWithAsterisks>true</HideWithAsterisks>
+			</Column>
+			<Column>
+				<Type>Url</Type>
+				<Width>106</Width>
+			</Column>
+			<Column>
+				<Type>Notes</Type>
+				<Width>106</Width>
+			</Column>
+		</EntryListColumnCollection>
+		<EntryListColumnDisplayOrder>0 1 2 3 4</EntryListColumnDisplayOrder>
+		<ListSorting>
+			<Order>Ascending</Order>
+		</ListSorting>
+	</MainWindow>
+	<UI>
+		<TrayIcon />
+		<Hiding />
+		<StandardFont>
+			<Family>Microsoft Sans Serif</Family>
+			<Size>8.25</Size>
+			<GraphicsUnit>Point</GraphicsUnit>
+			<Style>Regular</Style>
+			<OverrideUIDefault>false</OverrideUIDefault>
+		</StandardFont>
+		<PasswordFont>
+			<Family>Courier New</Family>
+			<Size>8.25</Size>
+			<GraphicsUnit>Point</GraphicsUnit>
+			<Style>Regular</Style>
+			<OverrideUIDefault>false</OverrideUIDefault>
+		</PasswordFont>
+		<BannerStyle>WinVistaBlack</BannerStyle>
+		<DataEditorFont>
+			<Family>Microsoft Sans Serif</Family>
+			<Size>8.25</Size>
+			<GraphicsUnit>Point</GraphicsUnit>
+			<Style>Regular</Style>
+			<OverrideUIDefault>false</OverrideUIDefault>
+		</DataEditorFont>
+		<UIFlags>0</UIFlags>
+		<KeyCreationFlags>0</KeyCreationFlags>
+		<KeyPromptFlags>0</KeyPromptFlags>
+	</UI>
+	<Security>
+		<WorkspaceLocking>
+			<LockAfterTime>0</LockAfterTime>
+			<LockAfterGlobalTime>0</LockAfterGlobalTime>
+		</WorkspaceLocking>
+		<Policy />
+		<MasterPassword>
+			<MinimumLength>0</MinimumLength>
+			<MinimumQuality>0</MinimumQuality>
+		</MasterPassword>
+	</Security>
+	<Native />
+	<PasswordGenerator>
+		<AutoGeneratedPasswordsProfile>
+			<GeneratorType>CharSet</GeneratorType>
+			<Length>20</Length>
+			<CharSetRanges>ULD_______</CharSetRanges>
+		</AutoGeneratedPasswordsProfile>
+		<LastUsedProfile>
+			<GeneratorType>CharSet</GeneratorType>
+			<Length>20</Length>
+			<CharSetRanges>ULD_______</CharSetRanges>
+		</LastUsedProfile>
+		<UserProfiles />
+	</PasswordGenerator>
+	<Defaults>
+		<OptionsTabIndex>2</OptionsTabIndex>
+		<SearchParameters>
+			<ComparisonMode>InvariantCultureIgnoreCase</ComparisonMode>
+		</SearchParameters>
+		<RememberKeySources>false</RememberKeySources>
+		<KeySources />
+	</Defaults>
+	<Integration>
+		<HotKeyGlobalAutoType>0</HotKeyGlobalAutoType>
+		<HotKeySelectedAutoType>0</HotKeySelectedAutoType>
+		<HotKeyShowWindow>0</HotKeyShowWindow>
+		<HotKeyEntryMenu>0</HotKeyEntryMenu>
+		<UrlSchemeOverrides>
+			<BuiltInOverridesEnabled>1</BuiltInOverridesEnabled>
+			<CustomOverrides />
+		</UrlSchemeOverrides>
+		<AutoTypeMatchByUrlInTitle>true</AutoTypeMatchByUrlInTitle>
+		<ProxyType>System</ProxyType>
+		<ProxyAuthType>Auto</ProxyAuthType>
+	</Integration>
+	<Custom>
+		<Item>
+			<Key>KeePassHttp_ReceiveCredentialNotification</Key>
+			<Value>true</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_SpecificMatchingOnly</Key>
+			<Value>false</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_UnlockDatabaseRequest</Key>
+			<Value>false</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_AlwaysAllowAccess</Key>
+			<Value>true</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_AlwaysAllowUpdates</Key>
+			<Value>true</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_SearchInAllOpenedDatabases</Key>
+			<Value>false</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_MatchSchemes</Key>
+			<Value>false</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_ReturnStringFields</Key>
+			<Value>false</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_SortResultByUsername</Key>
+			<Value>true</Value>
+		</Item>
+		<Item>
+			<Key>KeePassHttp_ListenerPort</Key>
+			<Value>19455</Value>
+		</Item>
+	</Custom>
+</Configuration>
