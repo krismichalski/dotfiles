@@ -15,3 +15,11 @@ done
 
 # create undodir
 mkdir -p ~/.undodir/
+
+# fonts
+if [[ ! -d "./fonts/noto" ]]; then
+  mkdir -p ./fonts/noto
+  wget https://noto-website.storage.googleapis.com/pkgs/Noto-hinted.zip
+  unzip Noto-hinted.zip -d ./fonts/noto
+fi
+fc-cache -vf ~/.fonts/
