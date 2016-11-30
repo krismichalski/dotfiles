@@ -1,0 +1,73 @@
+"*":
+  core:
+    excludeVcsIgnoredPaths: false
+    ignoredNames: [
+      "log"
+      "*.log"
+      "tmp"
+      "*.tmp"
+      "node_modules"
+      "vendor"
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "*.pyc"
+      "*.pyo"
+      "*.exe"
+      "*.dll"
+      "*.obj"
+      "*.o"
+      "*.a"
+      "*.lib"
+      "*.so"
+      "*.dylib"
+      "*.ncb"
+      "*.sdf"
+      "*.suo"
+      "*.pdb"
+      "*.idb"
+      "*.class"
+      "*.psd"
+      "*.db"
+      "*.jpg"
+      "*.jpeg"
+      "*.png"
+      "*.gif"
+      "*.ttf"
+      "*.tga"
+      "*.dds"
+      "*.ico"
+      "*.eot"
+      "*.pdf"
+      "*.swf"
+      "*.jar"
+      "*.zip"
+    ]
+    packagesWithKeymapsDisabled: [
+      "atom-terminal"
+    ]
+    projectHome: "/home/km/code/"
+    telemetryConsent: "limited"
+  editor:
+    invisibles: {}
+    preferredLineLength: 100
+    showIndentGuide: true
+    zoomFontWhenCtrlScrolling: false
+  "file-icons":
+    coloured: false
+  "linter-rubocop":
+    disableWhenNoConfigFile: true
+  "merge-conflicts": {}
+  "project-manager":
+    alwaysOpenInSameWindow: true
+    ignoreDirectories: "node_modules, vendor, vim"
+    includeGitRepositories: true
+    savePathsRelativeToHome: true
+    showPath: false
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
