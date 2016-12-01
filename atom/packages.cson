@@ -15,4 +15,5 @@ packages: [
   "merge-conflicts"
   "package-sync"
   "project-plus"
+  "toggle-quotes"
 ]
