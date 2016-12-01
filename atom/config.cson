@@ -61,6 +61,9 @@
   "linter-rubocop":
     disableWhenNoConfigFile: true
   "merge-conflicts": {}
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   "project-manager":
     alwaysOpenInSameWindow: true
     ignoreDirectories: "node_modules, vendor, vim"

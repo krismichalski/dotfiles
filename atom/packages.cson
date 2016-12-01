@@ -1,0 +1,18 @@
+packages: [
+  "advanced-open-file"
+  "atom-terminal"
+  "color-picker"
+  "editorconfig"
+  "emmet"
+  "file-icons"
+  "highlight-selected"
+  "language-haml"
+  "language-slim"
+  "linter"
+  "linter-rubocop"
+  "linter-ruby"
+  "linter-shellcheck"
+  "merge-conflicts"
+  "package-sync"
+  "project-plus"
+]
