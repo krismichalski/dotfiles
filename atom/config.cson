@@ -37,6 +37,7 @@
       "*.png"
       "*.gif"
       "*.ttf"
+      "*.svg"
       "*.tga"
       "*.dds"
       "*.ico"
