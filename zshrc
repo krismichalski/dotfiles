@@ -115,7 +115,7 @@ autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
-  elif [[ $(nvm version) != "none" ]]; then
+  elif [[ $(nvm version) != "none" && $(nvm version) != "system" ]]; then
     nvm deactivate
   fi
 }
