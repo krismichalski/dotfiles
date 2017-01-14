@@ -1,4 +1,7 @@
 "*":
+  "atom-terminal":
+    app: "/usr/bin/gnome-terminal"
+    args: "--maximize"
   core:
     excludeVcsIgnoredPaths: false
     ignoredNames: [
