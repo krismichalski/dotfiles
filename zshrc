@@ -65,7 +65,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo history common-aliases gitfast git-flow-avh)
+plugins=(git sudo history common-aliases gitfast git-flow-avh bundler)
 
 source $ZSH/oh-my-zsh.sh
 
