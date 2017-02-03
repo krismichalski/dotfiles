@@ -1,6 +1,21 @@
 #!/bin/bash
+declare -a possible_nginx_dirs=("/etc/nginx" "/opt/nginx")
+
 ip=$(dig a +noall +answer $1 | awk '{print $5}')
-nginx_files=$(ssh -q deploy@$ip 'ls /etc/nginx/sites-enabled')
+
+for i in "${possible_nginx_dirs[@]}"; do
+  nginx_files=$(ssh -q deploy@$ip "ls $i/sites-enabled 2>/dev/null")
+
+  if [[ "$nginx_files" != "" ]]; then
+    nginx_dir=$i
+    break
+  fi
+
+  if [[ "$i" == "${possible_nginx_dirs[${#possible_nginx_dirs[@]}-1]}" ]]; then
+    echo "Couldn't find nginx directory"
+    exit
+  fi
+done
 
 wanted_file=''
 
@@ -9,12 +24,16 @@ for nginx_file in $nginx_files; do
     continue
   fi
   wanted_file=$nginx_file
-  check=$(ssh -q deploy@$ip "cat /etc/nginx/sites-enabled/$nginx_file | grep $1")
+  check=$(ssh -q deploy@$ip "cat $nginx_dir/sites-enabled/$nginx_file | grep '^.*server_name.*rodzinanaswoim.pl.*$' | grep -v '^ *#'")
   if [[ "$check" != "" ]]; then
     break
   fi
+  if [[ "$nginx_file" == "${nginx_files[${#nginx_files[@]}-1]}" ]]; then
+    echo "Couldn't find nginx file"
+    exit
+  fi
 done
 
-app_path=$(ssh -q deploy@$ip "cat /etc/nginx/sites-enabled/$wanted_file | grep /current/public" | awk '{print $2}' | xargs dirname)
+app_path=$(ssh -q deploy@$ip "cat $nginx_dir/sites-enabled/$wanted_file | grep /current/public" | grep -v '^ *#' | awk '{print $2}' | xargs dirname)
 repo=$(ssh -q deploy@$ip "cat $app_path/config/deploy.rb | grep ':repository,'" | awk '{print $3}' | tr -d "\'\"")
 echo $repo
