@@ -55,6 +55,10 @@
     ]
     projectHome: "/home/km/code/"
     telemetryConsent: "limited"
+  "disable-keybindings":
+    prefixKeys: [
+      "ctrl-w"
+    ]
   editor:
     invisibles: {}
     preferredLineLength: 100
@@ -76,5 +80,12 @@
     showPath: false
   "tree-view":
     hideIgnoredNames: true
+  "vim-mode-plus":
+    highlightSearch: true
+    incrementalSearch: true
+    stayOnTransformString: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
   welcome:
     showOnStartup: false
