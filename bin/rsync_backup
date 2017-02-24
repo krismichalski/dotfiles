@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ ("$(whoami)" != "root") || (! -z "$SUDO_USER") ]]; then
+  echo 'Run this command as root'
+  exit
+fi
+
+rsync -aAXH --delete --info=progress2 --include="/mnt/Storage/" --exclude={"/home/km/GDrive/","/home/km/Videos","/mnt/Storage/Games/","/mnt/Storage/Videos/","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /media/km/Rubbish/MintSystemBackup/
