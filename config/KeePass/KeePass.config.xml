@@ -249,8 +249,8 @@
 	</Application>
 	<Logging />
 	<MainWindow>
-		<X>297</X>
-		<Y>52</Y>
+		<X>2000</X>
+		<Y>146</Y>
 		<Width>771</Width>
 		<Height>663</Height>
 		<SplitterHorizontalFrac>0.8333</SplitterHorizontalFrac>

@@ -32,4 +32,4 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
 '.platform-linux':
-  'ctrl-t': 'atom-terminal:open-project-root'
+  'cmd-t': 'atom-terminal:open-project-root'
