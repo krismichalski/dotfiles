@@ -6,7 +6,7 @@ These are config files to set up a system the way I like it.
 
   ```bash
   mkdir -p ~/code/
-  git clone git://github.com/nooulaif/dotfiles ~/code/dotfiles
+  git clone git://github.com/kristopher-michalski/dotfiles ~/code/dotfiles
   cd ~/code/dotfiles
   ./install.sh
   ```
