@@ -85,7 +85,6 @@
     highlightSearch: true
     incrementalSearch: true
     stayOnTransformString: true
-    useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
   welcome:
