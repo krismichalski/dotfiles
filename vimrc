@@ -1,4 +1,4 @@
-set nocompatible                      " Don't maintain compatibilty with Vi
+set nocompatible " Don't maintain compatibilty with Vi
 
 " Use the space key as a leader
 let mapleader = "\<Space>"
@@ -6,6 +6,7 @@ let mapleader = "\<Space>"
 " Vim-plug plugin manager
 call plug#begin()
 Plug 'tpope/vim-sensible'             " Defaults everyone can agree on
+Plug 'tpope/vim-fugitive'             " Awesome git wrapper
 Plug 'tpope/vim-surround'             " Quoting/Parenthesizing made simple
 Plug 'tpope/vim-repeat'               " Supercharge Vim's dot command
 Plug 'tpope/vim-rails'                " Ruby on Rails power tools
@@ -25,20 +26,42 @@ Plug 'amerlyq/vim-focus-autocmd'      " Focus events for vim in terminal
 Plug 'sheerun/vim-polyglot'           " Solid language pack
 Plug 'scrooloose/syntastic'           " Syntax checker
 Plug 'mbbill/undotree'                " Visualize undo branches
+Plug 'kana/vim-textobj-entire'        " Text objects for entire buffers
 Plug 'kana/vim-textobj-user'          " Create your own text objects
 Plug 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
+Plug 'godlygeek/tabular'              " Alignment
+Plug 'dkprice/vim-easygrep'           " Easier find and replace
+Plug 'mileszs/ack.vim'                " Run searches with ag
+Plug 'scrooloose/nerdtree'            " Tree explorer
+Plug 'sirver/ultisnips'               " Snippet engine
+Plug 'honza/vim-snippets'             " Snippets
+Plug 'tommcdo/vim-exchange'           " Easy text exchange operator
+Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
+
+" Plugins with additional instalation steps
+  " CtrlP Matcher
+  Plug 'nixprime/cpsm', { 'do': './install.sh' }
+  " Fuzzy code completion engine
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
 call plug#end()
 
 " Use the colorscheme from above
 colorscheme jellybeans
 
+" GUI options
+set guioptions-=T
+set guioptions-=r
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+
 " Boolean settings
-set number                            " Display line numbers beside buffer
-set relativenumber                    " Relavive number of lines from the current one
-set hidden                            " Allow buffer change w/o saving
-set lazyredraw                        " Don't update while executing macros
-set showcmd                           " display incomplete commands
-set autowrite                         " Automatically :write before running commands
+set number         " Display line numbers beside buffer
+set relativenumber " Relavive number of lines from the current one
+set hidden         " Allow buffer change w/o saving
+set lazyredraw     " Don't update while executing macros
+set showcmd        " display incomplete commands
+set autowrite      " Automatically :write before running commands
+set ignorecase     " Ignore case during searches
+set hlsearch       " Highlight all search matches
 
 " No backups and swaps
 set nobackup
@@ -72,10 +95,13 @@ let g:syntastic_check_on_wq = 0
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+
+  " Tell Ack to use ag
+  let g:ackprg = 'ag --vimgrep'
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+  let g:ctrlp_user_command = 'ag -i --nogroup --nocolor --hidden --ignore .git -g "" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -85,6 +111,9 @@ if executable('ag')
     nnoremap \ :Ag<SPACE>
   endif
 endif
+
+" Use better ctrlP matcher
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 " Make it obvious where 100 characters is
 set textwidth=100
@@ -101,7 +130,7 @@ if has("persistent_undo")
 endif
 
 " Edit vimrc in new tab
-nmap <leader>vr :tabedit $HOME/code/dotfiles/vimrc<cr>
+nmap <leader>er :tabedit $HOME/code/dotfiles/vimrc<cr>
 
 " Source (reload) vimrc
 nmap <leader>so :source $HOME/code/dotfiles/vimrc<cr>
@@ -114,11 +143,11 @@ nmap <leader>P o<cr><esc>k"+P
 nmap j gj
 nmap k gk
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" Mute highlighting
+nnoremap <silent> <leader><leader> :nohlsearch<CR>
+
+" Make new line under current line and stay
+nnoremap <CR> o<esc>k
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -128,6 +157,9 @@ nnoremap <C-l> <C-w>l
 
 " UndoTree
 nnoremap <F5> :UndotreeToggle<cr>
+
+" NERDTree
+nnoremap <F5> :NERDTreeToggle<cr>
 
 " Overwrite common typo
 nmap q: :q
@@ -142,13 +174,11 @@ map K <Nop>
 " (e.g. in .bashrc or .zshrc)
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
+nmap <C-w> :q<CR>
 
 " Partial text search in command mode with CTRL-P instead of arrow keys
 cmap <C-P> <Up>
 cmap <C-N> <Down>
-
-" Bind `q` to close the buffer for help files
-autocmd Filetype help nnoremap <buffer> q :q<CR>
 
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
