@@ -37,6 +37,7 @@ Plug 'sirver/ultisnips'               " Snippet engine
 Plug 'honza/vim-snippets'             " Snippets
 Plug 'tommcdo/vim-exchange'           " Easy text exchange operator
 Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
+Plug 'ervandew/supertab'              " Better control over <Tab>
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -159,7 +160,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <F5> :UndotreeToggle<cr>
 
 " NERDTree
-nnoremap <F5> :NERDTreeToggle<cr>
+nnoremap <F2> :NERDTreeToggle<cr>
 
 " Overwrite common typo
 nmap q: :q
@@ -187,3 +188,18 @@ command! QA qall
 command! E e
 command! W w
 command! Wq wq
+
+" close preview window in YCM
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
