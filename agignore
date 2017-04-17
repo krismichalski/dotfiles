@@ -1,8 +1,8 @@
 .git/
 tags
-/bower_components/
-/log
-/node_modules/
-/tmp
-/vendor
-/vim
+bower_components/
+log/
+node_modules/
+tmp/
+vendor/
+vim/
