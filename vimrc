@@ -54,7 +54,6 @@ colorscheme jellybeans
 " GUI options
 set guioptions-=T
 set guioptions-=r
-" set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set guifont=SauceCodePro\ NF\ 10
 
 " Boolean settings
