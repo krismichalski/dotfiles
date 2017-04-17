@@ -38,6 +38,8 @@ Plug 'honza/vim-snippets'             " Snippets
 Plug 'tommcdo/vim-exchange'           " Easy text exchange operator
 Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
 Plug 'ervandew/supertab'              " Better control over <Tab>
+Plug 'pangloss/vim-javascript'        " Improved Javascript
+Plug 'ryanoasis/vim-devicons'         " Icons
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -52,7 +54,8 @@ colorscheme jellybeans
 " GUI options
 set guioptions-=T
 set guioptions-=r
-set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+" set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+set guifont=SauceCodePro\ NF\ 10
 
 " Boolean settings
 set number         " Display line numbers beside buffer
@@ -74,9 +77,6 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation
 set nojoinspaces
@@ -115,10 +115,6 @@ endif
 
 " Use better ctrlP matcher
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
-
-" Make it obvious where 100 characters is
-set textwidth=100
-set colorcolumn=+1
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -203,3 +199,5 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+autocmd FileType javascript inoremap <buffer> <expr> <CR> match(strpart(getline("."), col(".")-1, 3), "})$") >= 0 ? '<CR><C-o>$;<C-o>O' : match(strpart(getline("."), col(".")-1, 2), "}$") >= 0 ? '<CR><C-o>O' : '<CR>'
