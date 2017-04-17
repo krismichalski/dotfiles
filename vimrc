@@ -200,4 +200,16 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-autocmd FileType javascript inoremap <buffer> <expr> <CR> match(strpart(getline("."), col(".")-1, 3), "})$") >= 0 ? '<CR><C-o>$;<C-o>O' : match(strpart(getline("."), col(".")-1, 2), "}$") >= 0 ? '<CR><C-o>O' : '<CR>'
+function! JSEnter()
+  if match(strpart(getline("."), col(".")-1, 3), "})$") >= 0
+    return "\<CR>\<C-o>$;\<C-o>O"
+  elseif match(strpart(getline("."), col(".")-1, 4), "});$") >= 0
+     \|| match(strpart(getline("."), col(".")-1, 2), "}$") >= 0
+     \|| match(strpart(getline("."), col(".")-1, 3), "};$") >= 0
+    return "\<CR>\<C-o>O"
+  else
+    return "\<CR>"
+  endif
+endfunction
+
+autocmd FileType javascript inoremap <buffer> <expr> <CR> JSEnter()
