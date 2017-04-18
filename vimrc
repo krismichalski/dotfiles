@@ -105,15 +105,13 @@ if executable('ag')
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-
-  if !exists(":Ack")
-    command -nargs=+ -complete=file -bar Ack silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ack<SPACE>
-  endif
 endif
 
 " Use better ctrlP matcher
 let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
+
+" Highlight found results and copy search patter to / register
+let g:ackhighlight = 1
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -176,6 +174,9 @@ nmap <C-w> :q<CR>
 cmap <C-P> <Up>
 cmap <C-N> <Down>
 
+" Quick global search
+nnoremap \ :Ack<SPACE>
+
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
 command! Qall qall
@@ -199,6 +200,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Insert semicolon and indent on Enter in javascript when appropriate
 function! JSEnter()
   if match(strpart(getline("."), col(".")-1, 3), "})$") >= 0
     return "\<CR>\<C-o>$;\<C-o>O"
@@ -210,5 +212,4 @@ function! JSEnter()
     return "\<CR>"
   endif
 endfunction
-
 autocmd FileType javascript inoremap <buffer> <expr> <CR> JSEnter()
