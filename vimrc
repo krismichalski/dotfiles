@@ -40,6 +40,7 @@ Plug 'ervandew/supertab'              " Better control over <Tab>
 Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'ryanoasis/vim-devicons'         " Icons
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
+Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -140,9 +141,6 @@ nmap k gk
 " Quickly switch between last 2 buffers
 nnoremap <silent> <leader><leader> <C-^>
 
-" Mute highlighting
-nnoremap <silent> <leader>l :nohl<CR>
-
 " Make new line under current line and stay
 nnoremap <CR> o<esc>k
 
@@ -212,6 +210,18 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" incsearch.vim config
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " Insert semicolon and indent on Enter in javascript when appropriate
 function! JSEnter()
