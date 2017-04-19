@@ -30,7 +30,6 @@ Plug 'kana/vim-textobj-entire'        " Text objects for entire buffers
 Plug 'kana/vim-textobj-user'          " Create your own text objects
 Plug 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
 Plug 'godlygeek/tabular'              " Alignment
-Plug 'dkprice/vim-easygrep'           " Easier find and replace
 Plug 'mileszs/ack.vim'                " Run searches with ag
 Plug 'scrooloose/nerdtree'            " Tree explorer
 Plug 'sirver/ultisnips'               " Snippet engine
@@ -40,6 +39,7 @@ Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
 Plug 'ervandew/supertab'              " Better control over <Tab>
 Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'ryanoasis/vim-devicons'         " Icons
+Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -137,8 +137,11 @@ nmap <leader>P o<cr><esc>k"+P
 nmap j gj
 nmap k gk
 
+" Quickly switch between last 2 buffers
+nnoremap <silent> <leader><leader> <C-^>
+
 " Mute highlighting
-nnoremap <silent> <leader><leader> :nohlsearch<CR>
+nnoremap <silent> <leader>l :nohl<CR>
 
 " Make new line under current line and stay
 nnoremap <CR> o<esc>k
@@ -175,7 +178,7 @@ cmap <C-P> <Up>
 cmap <C-N> <Down>
 
 " Quick global search
-nnoremap \ :Ack<SPACE>
+nnoremap <leader>f :Ack<SPACE>
 
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
@@ -199,6 +202,16 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" EasyMotion config
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+nmap \ <Plug>(easymotion-overwin-f2)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Insert semicolon and indent on Enter in javascript when appropriate
 function! JSEnter()
