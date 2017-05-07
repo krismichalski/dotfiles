@@ -41,6 +41,7 @@ Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'ryanoasis/vim-devicons'         " Icons
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
+Plug 'chaoren/vim-wordmotion'         " Better word motions
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -151,10 +152,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " UndoTree
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <C-U> :UndotreeToggle<cr>
 
 " NERDTree
-nnoremap <F2> :NERDTreeToggle<cr>
+nnoremap <C-N> :NERDTreeToggle<cr>
 
 " Overwrite common typo
 nmap q: :q
@@ -236,3 +237,6 @@ function! JSEnter()
   endif
 endfunction
 autocmd FileType javascript inoremap <buffer> <expr> <CR> JSEnter()
+
+" Disable auto commenting
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

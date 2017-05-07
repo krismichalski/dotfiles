@@ -67,7 +67,7 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="232"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo history common-aliases gitfast git-flow-avh bundler)
+plugins=(git sudo history common-aliases bundler)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -11,8 +11,8 @@ if [[ "$1" == "" || "$2" == "" ]]; then
   exit
 fi
 
-source_lc=$(last_character $1)
-destination_lc=$(last_character $2)
+source_lc=$(last_character "$1")
+destination_lc=$(last_character "$2")
 
 if [[ "$source_lc" != "/" || "$destination_lc" != "/" ]]; then
   echo 'Last character in source and destination must be /'
@@ -20,7 +20,7 @@ if [[ "$source_lc" != "/" || "$destination_lc" != "/" ]]; then
 fi
 
 if [[ "$1" == "/" ]]; then
-  sudo rsync -aAXH --delete --info=progress2 --exclude={"/home/km/GDrive/","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} $1 $2
+  sudo rsync -aAXH --delete --info=progress2 --exclude={"/home/km/GDrive/","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} "$1" "$2"
 else
-  sudo rsync -aAXH --delete --info=progress2 $1 $2
+  sudo rsync -aAXH --delete --info=progress2 "$1" "$2"
 fi
