@@ -67,6 +67,7 @@ set showcmd        " display incomplete commands
 set autowrite      " Automatically :write before running commands
 set ignorecase     " Ignore case during searches
 set hlsearch       " Highlight all search matches
+set nowrap         " Do not wrap lines
 
 " No backups and swaps
 set nobackup
@@ -101,6 +102,7 @@ if executable('ag')
 
   " Tell Ack to use ag
   let g:ackprg = 'ag --vimgrep'
+  let g:ack_default_options = ' -s -H --nocolor --nogroup --column --smart-case --follow'
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag -i --nogroup --nocolor --hidden --ignore .git -g "" %s'
@@ -165,6 +167,9 @@ map Q @q
 
 " Disable K looking stuff up
 map K <Nop>
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
 
 " Note that remapping C-s requires flow control to be disabled
 " (e.g. in .bashrc or .zshrc)

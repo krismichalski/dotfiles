@@ -22,5 +22,5 @@ fi
 if [[ "$1" == "/" ]]; then
   sudo rsync -aAXH --delete --info=progress2 --exclude={"/home/km/GDrive/","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} "$1" "$2"
 else
-  sudo rsync -aAXH --delete --info=progress2 "$1" "$2"
+  sudo rsync -aAXH --delete --info=progress2 --exclude={"/mnt/Storage/Videos/Anime"} "$1" "$2"
 fi
