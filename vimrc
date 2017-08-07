@@ -41,7 +41,6 @@ Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'ryanoasis/vim-devicons'         " Icons
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
-Plug 'chaoren/vim-wordmotion'         " Better word motions
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
