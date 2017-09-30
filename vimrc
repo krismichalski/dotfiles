@@ -94,6 +94,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_scss_sass_quiet_messages = { "regex": 'File to import not found or unreadable' }
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
