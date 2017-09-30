@@ -16,6 +16,7 @@ Plug 'tpope/vim-bundler'              " Lightweight support for Ruby's Bundler
 Plug 'tpope/vim-endwise'              " Wisely add various 'ends'
 Plug 'tpope/vim-fugitive'             " Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
+Plug 'tpope/vim-rbenv'                " Wrap and support rbenv
 Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, etc finder
 Plug 'thoughtbot/vim-rspec'           " Run Rspec specs from Vim
 Plug 'nanotech/jellybeans.vim'        " Color scheme
