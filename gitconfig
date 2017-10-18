@@ -1,6 +1,3 @@
-[user]
-  email = kristopher.michalski+git@gmail.com
-  name = Kristopher Michalski
 [init]
   templatedir = ~/.git_template
 [push]
@@ -30,3 +27,7 @@
   autosquash = true
 [web]
 	browser = google-chrome
+[includeIf "gitdir:~/code/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/code/netguru/"]
+  path = ~/.gitconfig-netguru

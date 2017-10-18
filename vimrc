@@ -39,7 +39,6 @@ Plug 'tommcdo/vim-exchange'           " Easy text exchange operator
 Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
 Plug 'ervandew/supertab'              " Better control over <Tab>
 Plug 'pangloss/vim-javascript'        " Improved Javascript
-Plug 'ryanoasis/vim-devicons'         " Icons
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
 
@@ -47,16 +46,27 @@ Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
   " CtrlP Matcher
   Plug 'nixprime/cpsm', { 'do': './install.sh' }
   " Fuzzy code completion engine
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --js-completer' }
+
+" GUI-only plugins
+  if has('gui_running')
+    Plug 'ryanoasis/vim-devicons'         " Icons
+  endif
 call plug#end()
 
 " Use the colorscheme from above
 colorscheme jellybeans
 
 " GUI options
-set guioptions-=T
-set guioptions-=r
-set guifont=SauceCodePro\ NF\ 10
+if has('gui_running')
+  set guioptions-=T
+  set guioptions-=r
+  if has('gui_win32') || has("gui_macvim")
+    set guifont=SauceCodePro_NF:h13
+  else
+    set guifont=SauceCodePro\ NF\ 10
+  endif
+endif
 
 " Boolean settings
 set number         " Display line numbers beside buffer

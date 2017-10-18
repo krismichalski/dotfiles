@@ -99,13 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Disable flow control commands (keeps C-s from freezing everything)
-stty start undef
-stty stop undef
-
 # Search in history with partial text
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
+
+# Disable flow control commands (keeps C-s from freezing everything)
+stty start undef
+stty stop undef
 
 # rbenv
 eval "$(rbenv init -)"
