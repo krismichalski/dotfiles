@@ -41,6 +41,7 @@ Plug 'ervandew/supertab'              " Better control over <Tab>
 Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
+Plug 'thoughtbot/vim-rspec'           " Run RSpec from Vim
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -61,6 +62,10 @@ colorscheme jellybeans
 if has('gui_running')
   set guioptions-=T
   set guioptions-=r
+  set guioptions-=L
+
+  set showtabline=2
+
   if has('gui_win32') || has("gui_macvim")
     set guifont=SauceCodePro_NF:h13
   else
@@ -239,6 +244,14 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_runner = "os_x_iterm2"
+let g:rspec_command = "clear && rspec {spec}"
 
 " Insert semicolon and indent on Enter in javascript when appropriate
 function! JSEnter()
