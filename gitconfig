@@ -1,6 +1,3 @@
-[user]
-  email = kristopher.michalski+git@gmail.com
-  name = Kristopher Michalski
 [init]
   templatedir = ~/.git_template
 [push]
@@ -16,6 +13,7 @@
   pf = push --force-with-lease
   st = status
   change-commits = "!f() { VAR1=$1; VAR='$'$1; OLD=$2; NEW=$3; echo \"Are you sure for replace $VAR $OLD => $NEW ?(Y/N)\";read OK;if [ \"$OK\" = 'Y' ] ; then shift 3; git filter-branch --env-filter \"if [ \\\"${VAR}\\\" = '$OLD' ]; then export $VAR1='$NEW';echo 'to $NEW'; fi\" $@; fi;}; f "
+	root = rev-parse --show-toplevel
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore
@@ -30,3 +28,12 @@
   autosquash = true
 [web]
 	browser = google-chrome
+[includeIf "gitdir:~/code/"]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/code/netguru/"]
+  path = ~/.gitconfig-netguru
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

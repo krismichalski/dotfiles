@@ -8,6 +8,9 @@ for f in $PWD/*
 do
   [[ $(basename $f) == $(basename $0) ]] && continue
   [[ "$(basename $f)" == "config" ]] && continue
+  [[ "$(basename $f)" == "atom" ]] && continue
+  [[ "$(basename $f)" == "fonts" ]] && continue
+  [[ "$(basename $f)" == "README.md" ]] && continue
 
   ln -sfn $f ~/.$(basename $f)
 done
