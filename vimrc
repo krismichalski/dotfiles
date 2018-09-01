@@ -12,7 +12,6 @@ Plug 'tpope/vim-repeat'               " Supercharge Vim's dot command
 Plug 'tpope/vim-rails'                " Ruby on Rails power tools
 Plug 'tpope/vim-commentary'           " Comment stuff out
 Plug 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
-Plug 'tpope/vim-bundler'              " Lightweight support for Ruby's Bundler
 Plug 'tpope/vim-endwise'              " Wisely add various 'ends'
 Plug 'tpope/vim-fugitive'             " Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
@@ -42,6 +41,9 @@ Plug 'pangloss/vim-javascript'        " Improved Javascript
 Plug 'easymotion/vim-easymotion'      " Move inside file with ease
 Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
 Plug 'thoughtbot/vim-rspec'           " Run RSpec from Vim
+Plug 'mattn/webapi-vim'               " gist-vim dependency
+Plug 'mattn/gist-vim'                 " Manage your gists
+Plug 'shime/vim-livedown'             " Markdown live preview
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
@@ -83,6 +85,7 @@ set autowrite      " Automatically :write before running commands
 set ignorecase     " Ignore case during searches
 set hlsearch       " Highlight all search matches
 set nowrap         " Do not wrap lines
+set nostartofline  " Do not jump to start of the line after buffer switch
 
 " No backups and swaps
 set nobackup
@@ -109,7 +112,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_scss_sass_quiet_messages = { "regex": 'File to import not found or unreadable' }
+let g:syntastic_scss_sass_quiet_messages = { 'regex': 'File to import not found or unreadable' }
+let g:syntastic_eruby_ruby_quiet_messages = { 'regex': 'possibly useless use of a variable in void context' }
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -200,6 +204,8 @@ cmap <C-N> <Down>
 " Quick global search
 nnoremap <leader>f :Ack<SPACE>
 
+" cnoremap z edit <c-r>=expand("%:h")<cr>/
+
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
 command! Qall qall
@@ -212,6 +218,8 @@ command! Wq wq
 let g:SuperTabClosePreviewOnPopupClose = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -245,13 +253,25 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" RSpec.vim mappings
+" RSpec.vim config
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = "clear && rspec {spec}"
+
+" vim-gist config
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" vim-livedown config
+nmap gm :LivedownToggle<CR>
+
+" vim-rails config
+let g:rails_ctags_arguments = ['--languages=Ruby && bundle exec gem ctags']
 
 " Insert semicolon and indent on Enter in javascript when appropriate
 function! JSEnter()

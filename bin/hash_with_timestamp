@@ -1,5 +1,5 @@
 #!/bin/bash
 
-hash=`< /dev/urandom tr -cd 'a-z0-9' | head -c10`
+hash=`LC_ALL=C < /dev/urandom tr -cd 'a-z0-9' | head -c10`
 
 echo "${hash}.$(date +%s)";
