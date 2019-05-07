@@ -3,12 +3,8 @@
 # packages for vim plugins
 sudo apt-get install build-essential cmake python-dev python3-dev libboost-all-dev libicu-dev
 
-for f in $PWD/*
+for f in $PWD/dotfiles/*
 do
-  [[ $(basename $f) == $(basename $0) ]] && continue
-  [[ "$(basename $f)" == "config" ]] && continue
-  [[ "$(basename $f)" == "README.md" ]] && continue
-
   ln -sfn $f ~/.$(basename $f)
 done
 
