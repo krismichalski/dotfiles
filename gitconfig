@@ -1,5 +1,3 @@
-[init]
-  templatedir = ~/.git_template
 [push]
   default = current
 [color]
@@ -42,3 +40,6 @@
   path = ~/.gitconfig-personal
 [includeIf "gitdir:~/code/netguru/"]
   path = ~/.gitconfig-netguru
+[user]
+	name = Kristopher Michalski
+	email = krzysztof.michalski@netguru.pl

@@ -5,60 +5,59 @@ let mapleader = "\<Space>"
 
 " Vim-plug plugin manager
 call plug#begin()
-Plug 'tpope/vim-sensible'             " Defaults everyone can agree on
-Plug 'tpope/vim-fugitive'             " Awesome git wrapper
-Plug 'tpope/vim-surround'             " Quoting/Parenthesizing made simple
-Plug 'tpope/vim-repeat'               " Supercharge Vim's dot command
-Plug 'tpope/vim-rails'                " Ruby on Rails power tools
-Plug 'tpope/vim-commentary'           " Comment stuff out
-Plug 'tpope/vim-dispatch'             " Asynchronous build and test dispatcher
-Plug 'tpope/vim-endwise'              " Wisely add various 'ends'
-Plug 'tpope/vim-fugitive'             " Git wrapper so awesome, it should be illegal
-Plug 'tpope/vim-unimpaired'           " Pairs of handy bracket mappings
-Plug 'tpope/vim-rbenv'                " Wrap and support rbenv
-Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, etc finder
-Plug 'thoughtbot/vim-rspec'           " Run Rspec specs from Vim
-Plug 'nanotech/jellybeans.vim'        " Color scheme
-Plug 'vim-airline/vim-airline'        " Lean & mean status/tabline
-Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
-Plug 'airblade/vim-gitgutter'         " Git diff in buffer
-Plug 'amerlyq/vim-focus-autocmd'      " Focus events for vim in terminal
-Plug 'sheerun/vim-polyglot'           " Solid language pack
-Plug 'scrooloose/syntastic'           " Syntax checker
-Plug 'mbbill/undotree'                " Visualize undo branches
-Plug 'kana/vim-textobj-entire'        " Text objects for entire buffers
-Plug 'kana/vim-textobj-user'          " Create your own text objects
-Plug 'nelstrom/vim-textobj-rubyblock' " Ruby text objects
-Plug 'godlygeek/tabular'              " Alignment
-Plug 'mileszs/ack.vim'                " Run searches with ag
-Plug 'scrooloose/nerdtree'            " Tree explorer
-Plug 'sirver/ultisnips'               " Snippet engine
-Plug 'honza/vim-snippets'             " Snippets
-Plug 'tommcdo/vim-exchange'           " Easy text exchange operator
-Plug 'Raimondi/delimitMate'           " Auto-insert quotes, brackets, etc.
-Plug 'ervandew/supertab'              " Better control over <Tab>
-Plug 'pangloss/vim-javascript'        " Improved Javascript
-Plug 'easymotion/vim-easymotion'      " Move inside file with ease
-Plug 'haya14busa/incsearch.vim'       " Highlight all pattern matches
-Plug 'thoughtbot/vim-rspec'           " Run RSpec from Vim
-Plug 'mattn/webapi-vim'               " gist-vim dependency
-Plug 'mattn/gist-vim'                 " Manage your gists
-Plug 'shime/vim-livedown'             " Markdown live preview
+  Plug 'tpope/vim-sensible'                 " Defaults everyone can agree on
+  Plug 'tpope/vim-fugitive'                 " Awesome git wrapper
+  Plug 'tpope/vim-surround'                 " Quoting/Parenthesizing made simple
+  Plug 'tpope/vim-repeat'                   " Supercharge Vim's dot command
+  Plug 'tpope/vim-rails'                    " Ruby on Rails power tools
+  Plug 'tpope/vim-commentary'               " Comment stuff out
+  Plug 'tpope/vim-dispatch'                 " Asynchronous build and test dispatcher
+  Plug 'tpope/vim-endwise'                  " Wisely add various 'ends'
+  Plug 'tpope/vim-unimpaired'               " Pairs of handy bracket mappings
+  Plug 'ctrlpvim/ctrlp.vim'                 " Fuzzy file, buffer, mru, tag, etc finder
+  Plug 'morhetz/gruvbox'                    " Color scheme
+  Plug 'vim-airline/vim-airline'            " Lean & mean status/tabline
+  Plug 'vim-airline/vim-airline-themes'     " Themes for vim-airline
+  Plug 'airblade/vim-gitgutter'             " Git diff in buffer
+  Plug 'amerlyq/vim-focus-autocmd'          " Focus events for vim in terminal
+  Plug 'sheerun/vim-polyglot'               " Solid language pack
+  Plug 'scrooloose/syntastic'               " Syntax checker
+  Plug 'mbbill/undotree'                    " Visualize undo branches
+  Plug 'kana/vim-textobj-entire'            " Text objects for entire buffers
+  Plug 'kana/vim-textobj-user'              " Create your own text objects
+  Plug 'nelstrom/vim-textobj-rubyblock'     " Ruby text objects
+  Plug 'godlygeek/tabular'                  " Alignment
+  Plug 'mileszs/ack.vim'                    " Run searches with ag
+  Plug 'scrooloose/nerdtree'                " Tree explorer
+  Plug 'tommcdo/vim-exchange'               " Easy text exchange operator
+  Plug 'Raimondi/delimitMate'               " Auto-insert quotes, brackets, etc.
+  Plug 'ervandew/supertab'                  " Better control over <Tab>
+  Plug 'pangloss/vim-javascript'            " Improved Javascript
+  Plug 'easymotion/vim-easymotion'          " Move inside file with ease
+  Plug 'haya14busa/incsearch.vim'           " Highlight all pattern matches
+  Plug 'shime/vim-livedown'                 " Markdown live preview
+  Plug 'christoomey/vim-tmux-navigator'     " Seamless navigation between tmux panes and vim splits
+  Plug 'christoomey/vim-tmux-runner'        " Command runner for sending commands from vim to tmux
+  Plug 'tmux-plugins/vim-tmux-focus-events' " Make autoread work inside tmux
+  Plug 'janko/vim-test'                     " Run tests from vim
 
 " Plugins with additional instalation steps
   " CtrlP Matcher
   Plug 'nixprime/cpsm', { 'do': './install.sh' }
-  " Fuzzy code completion engine
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --js-completer' }
-
-" GUI-only plugins
-  if has('gui_running')
-    Plug 'ryanoasis/vim-devicons'         " Icons
-  endif
 call plug#end()
 
 " Use the colorscheme from above
-colorscheme jellybeans
+let g:gruvbox_italic=1
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+highlight Normal ctermbg=NONE
+nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " GUI options
 if has('gui_running')
@@ -77,10 +76,9 @@ endif
 
 " Boolean settings
 set number         " Display line numbers beside buffer
-set relativenumber " Relavive number of lines from the current one
 set hidden         " Allow buffer change w/o saving
 set lazyredraw     " Don't update while executing macros
-set showcmd        " display incomplete commands
+set showcmd        " Display incomplete commands
 set autowrite      " Automatically :write before running commands
 set ignorecase     " Ignore case during searches
 set hlsearch       " Highlight all search matches
@@ -100,6 +98,10 @@ set expandtab
 
 " Use one space, not two, after punctuation
 set nojoinspaces
+
+" Set mouse
+set mouse=a
+set ttymouse=xterm
 
 " Use PowerLine fonts in airline
 let g:airline_powerline_fonts = 1
@@ -147,8 +149,16 @@ if has("persistent_undo")
     set undofile
 endif
 
-" Edit vimrc in new tab
-nmap <leader>er :tabedit $HOME/code/dotfiles/vimrc<cr>
+" Note that remapping C-s requires flow control to be disabled
+" (e.g. in .bashrc or .zshrc)
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
+nmap <C-w> :q<CR>
+
+" Edit rc files
+nmap <leader>er :edit $HOME/code/dotfiles/vimrc<cr>
+nmap <leader>ez :edit $HOME/code/dotfiles/zshrc<cr>
+nmap <leader>et :edit $HOME/code/dotfiles/tmux.conf<cr>
 
 " Source (reload) vimrc
 nmap <leader>so :source $HOME/code/dotfiles/vimrc<cr>
@@ -166,12 +176,6 @@ nnoremap <silent> <leader><leader> <C-^>
 
 " Make new line under current line and stay
 nnoremap <CR> o<esc>k
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 
 " UndoTree
 nnoremap <C-U> :UndotreeToggle<cr>
@@ -191,20 +195,12 @@ map K <Nop>
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Note that remapping C-s requires flow control to be disabled
-" (e.g. in .bashrc or .zshrc)
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-nmap <C-w> :q<CR>
-
 " Partial text search in command mode with CTRL-P instead of arrow keys
 cmap <C-P> <Up>
 cmap <C-N> <Down>
 
 " Quick global search
 nnoremap <leader>f :Ack<SPACE>
-
-" cnoremap z edit <c-r>=expand("%:h")<cr>/
 
 " Command aliases for typoed commands (accidentally holding shift too long)
 command! Q q " Bind :Q to :q
@@ -213,23 +209,6 @@ command! QA qall
 command! E e
 command! W w
 command! Wq wq
-
-" close preview window in YCM
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " EasyMotion config
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -253,19 +232,13 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" RSpec.vim config
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_runner = "os_x_iterm2"
-let g:rspec_command = "clear && rspec {spec}"
-
-" vim-gist config
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
+" vim-test config
+let test#strategy = "vtr"
+nmap <Leader>s :TestNearest<CR>
+nmap <Leader>t :TestFile<CR>
+nmap <Leader>a :TestSuite<CR>
+nmap <Leader>l :TestLast<CR>
+nmap <Leader>v :TestVisit<CR>
 
 " vim-livedown config
 nmap gm :LivedownToggle<CR>
@@ -273,19 +246,19 @@ nmap gm :LivedownToggle<CR>
 " vim-rails config
 let g:rails_ctags_arguments = ['--languages=Ruby && bundle exec gem ctags']
 
-" Insert semicolon and indent on Enter in javascript when appropriate
-function! JSEnter()
-  if match(strpart(getline("."), col(".")-1, 3), "})$") >= 0
-    return "\<CR>\<C-o>$;\<C-o>O"
-  elseif match(strpart(getline("."), col(".")-1, 4), "});$") >= 0
-     \|| match(strpart(getline("."), col(".")-1, 2), "}$") >= 0
-     \|| match(strpart(getline("."), col(".")-1, 3), "};$") >= 0
-    return "\<CR>\<C-o>O"
-  else
-    return "\<CR>"
-  endif
-endfunction
-autocmd FileType javascript inoremap <buffer> <expr> <CR> JSEnter()
-
 " Disable auto commenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" vim-tmux-navigator config
+let g:tmux_navigator_save_on_switch = 2
+let g:tmux_navigator_disable_when_zoomed = 1
+
+" vim-tmux-runner config
+" let g:VtrUseVtrMaps = 1

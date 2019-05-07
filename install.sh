@@ -2,7 +2,6 @@
 
 # packages for vim plugins
 sudo apt-get install build-essential cmake python-dev python3-dev libboost-all-dev libicu-dev
-sudo npm install -g typescript
 
 for f in $PWD/*
 do
