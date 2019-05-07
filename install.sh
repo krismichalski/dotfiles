@@ -8,8 +8,6 @@ for f in $PWD/*
 do
   [[ $(basename $f) == $(basename $0) ]] && continue
   [[ "$(basename $f)" == "config" ]] && continue
-  [[ "$(basename $f)" == "atom" ]] && continue
-  [[ "$(basename $f)" == "fonts" ]] && continue
   [[ "$(basename $f)" == "README.md" ]] && continue
 
   ln -sfn $f ~/.$(basename $f)
@@ -22,11 +20,3 @@ done
 
 # create undodir
 mkdir -p ~/.undodir/
-
-# fonts
-if [[ ! -d "./fonts/noto" ]]; then
-  mkdir -p ./fonts/noto
-  wget https://noto-website.storage.googleapis.com/pkgs/Noto-hinted.zip
-  unzip Noto-hinted.zip -d ./fonts/noto
-fi
-fc-cache -vf ~/.fonts/

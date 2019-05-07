@@ -1,4 +1,0 @@
-#!/bin/bash
-keepass2 /mnt/Storage/Library/KeePass.kdbx --pw-enc:$(cat /keepass2.pw.enc) &
-xdotool search --onlyvisible --all --sync --class "keepass2"
-wmctrl -i -c $(xdotool search --onlyvisible --all --sync --class "keepass2")
