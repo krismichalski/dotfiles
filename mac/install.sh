@@ -25,3 +25,10 @@ which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubuserconte
 [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || (git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k && source ~/.zshrc)
 
 brew install xsel asdf tmux
+
+
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git 
+
+# fzf
+# nvim
+# github desktop
