@@ -1,0 +1,10 @@
+.git/
+tags
+!tags/
+bower_components/
+log/
+node_modules/
+tmp/
+vendor/
+vim/
+*.json

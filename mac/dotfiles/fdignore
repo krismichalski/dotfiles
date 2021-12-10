@@ -1,0 +1,9 @@
+node_modules/
+tmp/
+log/
+.git/
+packs/
+packs-test/
+*.jpg
+*.png
+*.svg
