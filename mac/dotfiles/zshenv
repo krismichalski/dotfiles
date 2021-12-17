@@ -3,3 +3,6 @@ export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
 export LC_COLLATE=C
 export DISABLE_SPRING=1
 export DISABLE_ELASTICSEARCH=1
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=/opt/homebrew/bin/chromium
+export PARALLEL_TEST_FIRST_IS_1=true

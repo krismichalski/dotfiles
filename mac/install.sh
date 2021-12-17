@@ -28,13 +28,15 @@ which brew > /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubuserconte
 
 [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || (git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k && source ~/.zshrc)
 
-brew install xsel tmux gnupg rbenv rbenv-default-gems nvm neovim fzf node
+brew install xsel tmux gnupg neovim fzf node asdf
+
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 
 brew install --cask github visual-studio-code
-
-mv ~/.default-gems ~/.rbenv/default-gems
-mv ~/.default-npm-packages ~/.nvm/default-packages
 
 sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 nvim +PlugInstall +qall
+
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
