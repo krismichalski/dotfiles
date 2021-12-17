@@ -13,7 +13,11 @@ done
 
 for f in $PWD/config/*
 do
-  ln -sfn $f ~/.config/$(basename $f)
+  mkdir -p ~/.config/$(basename $f)/
+  for file in $f/*
+  do
+    ln -sfn $file ~/.config/$(basename $f)/$(basename $file)
+  done
 done
 
 mkdir -p ~/.undodir/
