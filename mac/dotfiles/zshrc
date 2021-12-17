@@ -116,5 +116,10 @@ stty stop undef
 # Allow [ or ] whereever you want
 unsetopt nomatch
 
-# Setup asdf
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Setup rbenv
+eval "$(rbenv init - zsh)"
+
+# Setup NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
