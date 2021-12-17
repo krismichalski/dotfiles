@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
+export PATH=".git/safe/../../bin:$HOME/.bin:$HOME/.local/bin:$PATH"
 export LC_COLLATE=C
 export DISABLE_SPRING=1
 export DISABLE_ELASTICSEARCH=1
