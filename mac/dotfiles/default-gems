@@ -1,6 +1,3 @@
 bundler
 pry
-solargraph
 rubocop
-ruby-debug-ide
-debase
