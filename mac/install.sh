@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-if [ ! -f ~/Library/Fonts/MesloLGS\ NF\ Regular.ttf ]; then
-  ln -sfn $PWD/fonts ~/Library/Fonts
+if [ ! -f /Library/Fonts/MesloLGS\ NF\ Regular.ttf ]; then
+  ln -sfn $PWD/fonts /Library/Fonts
   echo "Restart computer, set iTerm2 font to MesloLGS NF then run this script once again"
   exit
 fi
